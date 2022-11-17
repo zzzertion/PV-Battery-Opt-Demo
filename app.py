@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns([1, 5, 20])
 
 with col2:
-    st.image("lOGO.jpg", width=100)
+    st.image("./Picture/lOGO.jpg", width=100)
 with col3:
     st.markdown("""
     <style>
@@ -37,16 +37,7 @@ st.sidebar.text("HVAC智能温控调节系统，\n"
                 "AI无监督控制")
 st.sidebar.header("联系方式")
 st.sidebar.text("+86123456789")
-# col1, col2, col3, col4 = st.columns([20, 20, 20, 20])
-#
-# with col1:
-#     st.image("Big.png", width=800)
-# with col2:
-#     st.image("BigEarn.png", width=800)
-# with col3:
-#     st.image("Small.png", width=800)
-# with col4:
-#     st.image("SmallEarn.png", width=800)
+
 st.text('\n')
 
 
@@ -72,7 +63,7 @@ if option == "中小型（180-720千瓦时）":
         st.success("Finished!")
         st.balloons()
         CSVdr = "Batsize_{}_PVsize_{}.csv".format(int(Batsize/0.9),int(PVsize))
-        pathdr = 'D:\\Project\\China_Battery\\New_Battery\\SizingOPT\\'
+        pathdr = './Datafile/SizingOPT/'
         dfname =pathdr+CSVdr
         df = pd.read_csv(dfname)
         df['total'] = 1 - df['SOC_opt']
@@ -170,19 +161,19 @@ if option == "中小型（180-720千瓦时）":
 
                 with col1:
                     st.subheader("投资回收期(不含政府补贴)(4.8-7.1年)")
-                    st.image("Small.png", width=800)
+                    st.image("./Picture/Small.png", width=800)
                 with col2:
                     st.subheader("十年预期收益(不含政府补贴)(87-312万元)")
-                    st.image("SmallEarn.png", width=800)
+                    st.image("./Picture/SmallEarn.png", width=800)
 
                 col1, col2= st.columns([20, 20])
 
                 with col1:
                     st.subheader("投资回收期(含政府补贴)(3.19-4.42年)")
-                    st.image("Small_with.png", width=800)
+                    st.image("./Picture/Small_with.png", width=800)
                 with col2:
                     st.subheader("十年预期收益(含政府补贴)(142-570万元)")
-                    st.image("SmallEarn_with.png", width=800)
+                    st.image("./Picture/SmallEarn_with.png", width=800)
 
 
 else:
@@ -200,7 +191,7 @@ else:
         st.success("Finished!")
         st.balloons()
         CSVdr = "Batsize_{}_PVsize_{}.csv".format(int(Batsize/0.9),int(PVsize))
-        pathdr = 'D:\\Project\\China_Battery\\New_Battery\\SizingOPT_big\\'
+        pathdr = './Datafile/SizingOPT_big/'
         dfname =pathdr+CSVdr
         df = pd.read_csv(dfname)
         df['total'] = 1 - df['SOC_opt']
@@ -300,16 +291,16 @@ else:
 
                 with col1:
                     st.subheader("投资回收期(不含政府补贴)(6.1-8.9年)")
-                    st.image("Big.png", width=800)
+                    st.image("./Picture/Big.png", width=800)
                 with col2:
                     st.subheader("十年预期收益(不含政府补贴)(239-570万元)")
-                    st.image("BigEarn.png", width=800)
+                    st.image("./Picture/BigEarn.png", width=800)
 
                 col1, col2= st.columns([20, 20])
 
                 with col1:
                     st.subheader("投资回收期(含政府补贴)(3.6-5.1年)")
-                    st.image("Big_with.png", width=800)
+                    st.image("./Picture/Big_with.png", width=800)
                 with col2:
                     st.subheader("十年预期收益(含政府补贴)(470-1098万元)")
-                    st.image("BigEarn_with.png", width=800)
+                    st.image("./Picture/BigEarn_with.png", width=800)
