@@ -4,9 +4,28 @@ import time
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
-
+import base64
 st.set_page_config(layout="wide")
+
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+add_bg_from_local('./Picture/Solar-Battery-Storage-Full.jpg')
+
+
+
+
 col1, col2, col3 = st.columns([1, 5, 20])
 
 with col2:
@@ -33,10 +52,10 @@ st.sidebar.header("核心技术")
 st.sidebar.text("HVAC智能温控调节系统，\n"
                 "国际先进AI⼈⼯智能算法，\n"
                 "⼈员流动分析，\n"
-                "建筑外壁温度调节 ，\n"
+                "建筑外壁温度调节，\n"
                 "AI无监督控制")
 st.sidebar.header("联系方式")
-st.sidebar.text("+86123456789")
+st.sidebar.text("zjiang19@syr.edu")
 
 st.text('\n')
 
@@ -58,7 +77,7 @@ if option == "中小型（180-720千瓦时）":
     Batsize = st.slider("电池容量(kWh)", min_value=180, max_value=720, step=45)
     check = st.checkbox("确认")
     if check:
-        with st.spinner("Waiting.."):
+        with st.spinner("计算中.."):
             time.sleep(3)
         st.success("Finished!")
         st.balloons()
@@ -156,23 +175,23 @@ if option == "中小型（180-720千瓦时）":
                 )
                 st.write(fig)
 
-                time.sleep(0.1)
+                time.sleep(0.08)
                 col1, col2= st.columns([20, 20])
 
                 with col1:
-                    st.subheader("投资回收期(不含政府补贴)(4.8-7.1年)")
+                    st.subheader("最快投资回收期(不含政府补贴)(4.3年)")
                     st.image("./Picture/Small.png", width=800)
                 with col2:
-                    st.subheader("十年预期收益(不含政府补贴)(87-312万元)")
+                    st.subheader("十年预期收益(不含政府补贴)(94-331万元)")
                     st.image("./Picture/SmallEarn.png", width=800)
 
                 col1, col2= st.columns([20, 20])
 
                 with col1:
-                    st.subheader("投资回收期(含政府补贴)(3.19-4.42年)")
+                    st.subheader("最快投资回收期(含政府补贴)(2.8年)")
                     st.image("./Picture/Small_with.png", width=800)
                 with col2:
-                    st.subheader("十年预期收益(含政府补贴)(142-570万元)")
+                    st.subheader("十年预期收益(含政府补贴)(149-589万元)")
                     st.image("./Picture/SmallEarn_with.png", width=800)
 
 
@@ -285,22 +304,22 @@ else:
                 )
                 st.write(fig)
 
-                time.sleep(0.1)
+                time.sleep(0.08)
 
                 col1, col2= st.columns([20, 20])
 
                 with col1:
-                    st.subheader("投资回收期(不含政府补贴)(6.1-8.9年)")
+                    st.subheader("最快投资回收期(不含政府补贴)(5.5年)")
                     st.image("./Picture/Big.png", width=800)
                 with col2:
-                    st.subheader("十年预期收益(不含政府补贴)(239-570万元)")
+                    st.subheader("十年预期收益(不含政府补贴)(253-604万元)")
                     st.image("./Picture/BigEarn.png", width=800)
 
                 col1, col2= st.columns([20, 20])
 
                 with col1:
-                    st.subheader("投资回收期(含政府补贴)(3.6-5.1年)")
+                    st.subheader("最快投资回收期(含政府补贴)(3.3年)")
                     st.image("./Picture/Big_with.png", width=800)
                 with col2:
-                    st.subheader("十年预期收益(含政府补贴)(470-1098万元)")
+                    st.subheader("十年预期收益(含政府补贴)(483-1132万元)")
                     st.image("./Picture/BigEarn_with.png", width=800)
