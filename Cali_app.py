@@ -183,6 +183,6 @@ if check:
                 st.subheader("Quickest Payback Year(1.5y)")
                 st.image("./Picture/Cali.png", width=800)
             with col2:
-                st.subheader("10 Years potential benefit(0.3-2.5M $)")
+                st.subheader("10 Years Potential Benefit(2.5M $)")
                 st.image("./Picture/SmallEarn.png", width=800)
 
